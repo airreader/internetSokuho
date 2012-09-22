@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+$(function(){
+  socket = io.connect();
+
+  socket.on('res',function(msg) {
+      console.log('res#msg=' + msg);
+      displayNews(msg);
+    });
+
+  $('form').submit(function(e){
+    news();
+      return false;
+  });
+});
+
+function news() {
+  var msg = $('input#news').val();
+  console.log('hoge');
+  $('input#news').val('').focus();
+  socket.emit('news', msg); //発言内容をサーバーに送る
+  $('div.newsDiv').animate({ scrollTop: 2000000 }, 'fast');
+  return false;
+}
+
+function displayNews(msg) {
+  console.log('msg=' + msg);
+  var trDom = $('<tr>');
+  trDom.append($('<td>').addClass('newsTd').append(msg));
+  $('table.newsTable').append(trDom);           
+}
+
+</script>
+  </head>
+  <body>
+    <form>
+      <input id="news">
+      <input type="submit" value="投稿">
+    </form>
+    <div class="newsDiv">
+        <table class="newsTable"></table>
+    </div>
+  </body>
+</html>

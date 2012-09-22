@@ -1,0 +1,30 @@
+{
+  "name": "インターネットニュース速報",
+  "description": "ブラウザ上に速報っぽいものを表示する拡張です",
+  "version": "1.2",
+  "permissions": ["tabs", "notifications", "http://*/*"],
+  "manifest_version": 2,
+  "icons": { "16": "icon16.png",
+           "48": "icon48.png",
+          "128": "icon128.png" },
+  "background": {
+    "page": "background.html"
+  },
+  "options_page" : "options_page.html",
+  "browser_action": {
+    "default_title": "Preferences",
+    "default_icon": "icon32.png",
+    "default_popup": "options_page.html"
+    },
+  "content_security_policy": "script-src 'self' https://www9222ue.sakura.ne.jp:3000/socket.io/socket.io.js; object-src 'self'",
+  "content_scripts": [
+    {   
+      "js": [
+        "jquery.js"
+      ],
+      "css": ["content_scripts.css"],
+      "matches": ["http://*/*"],
+      "run_at": "document_end"
+    }
+  ]
+}

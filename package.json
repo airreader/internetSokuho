@@ -1,0 +1,19 @@
+{
+  "name": "internet sokuho",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "express": "3.0.0beta7",
+    "jade": "*",
+    "socket.io": "*"
+  },
+   "repository": {
+    "url": ""
+  },
+  "engines": {
+    "node": "*"
+  },
+}

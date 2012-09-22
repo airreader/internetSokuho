@@ -6,10 +6,23 @@ lib-cov
 *.out
 *.pid
 *.gz
+<<<<<<< HEAD
+=======
+*.pem
+*.crx
+>>>>>>> first commit
 
 pids
 logs
 results
 
+<<<<<<< HEAD
 node_modules
 npm-debug.log
+=======
+*.DS_Store
+node_modules
+npm-debug.log
+
+secret/
+>>>>>>> first commit

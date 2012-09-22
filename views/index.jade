@@ -1,0 +1,16 @@
+extends layout
+
+block content
+	script(src='./socket.io/socket.io.js',type='text/javascript')
+	script(type='text/javascript')
+		var chat = io.connect('http://localhost/chat')
+		, news = io.connect('http://localhost/news');
+		chat.on('connect', function () {
+		chat.emit('hi!');
+		});
+  
+		news.on('news', function () {
+			news.emit('woot');
+		});
+	h1= title
+	p Welcome to #{title}

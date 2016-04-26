@@ -1,2 +1,4 @@
 internetSokuho
 ==============
+
+hoge
